@@ -10,36 +10,31 @@ const tileSpacing = 16.0;
 const iconPad = 12.0;
 
 void main() {
-  const colorScheme = ColorScheme(
-      primary: Color(0xFF6200EE),
-      primaryVariant: Color(0xFF3700B3),
-      secondary: Color(0xFF03DAC6),
-      secondaryVariant: Color(0xFF018786),
-      surface: Color(0xFFFFFFFF),
-      background: Color(0xFFFFFFFF),
-      error: Color(0xFFB00020),
-      onPrimary: Color(0xFFFFFFFF),
-      onSecondary: Color(0xFF000000),
-      onSurface: Color(0xFF000000),
-      onBackground: Color(0xFF000000),
-      onError: Color(0xFFffffff),
-      brightness: Brightness.light);
-
-  var themeData = ThemeData.from(colorScheme: colorScheme);
-
-  runApp(MyApp(themeData: themeData));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.themeData}) : super(key: key);
-
-  final ThemeData themeData;
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Theming Demo',
-      theme: themeData,
+      theme: ThemeData.from(
+          colorScheme: const ColorScheme(
+              primary: Color(0xFF6200EE),
+              primaryVariant: Color(0xFF3700B3),
+              secondary: Color(0xFF03DAC6),
+              secondaryVariant: Color(0xFF018786),
+              surface: Color(0xFFFFFFFF),
+              background: Color(0xFFFFFFFF),
+              error: Color(0xFFB00020),
+              onPrimary: Color(0xFFFFFFFF),
+              onSecondary: Color(0xFF000000),
+              onSurface: Color(0xFF000000),
+              onBackground: Color(0xFF000000),
+              onError: Color(0xFFffffff),
+              brightness: Brightness.light)),
       home: const Home(),
     );
   }
